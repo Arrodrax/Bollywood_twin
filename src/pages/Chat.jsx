@@ -1,10 +1,16 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
+<<<<<<< HEAD:src/pages/Chat.jsx
 import { useParams } from 'react-router-dom';
 
 const Chat = () => {
   const { id } = useParams();
 
+=======
+const Chat = () => {
+  const { celebId } = useParams();
+>>>>>>> d88f2ff (Final save before rest):src/components/Chat.jsx
   const [messages, setMessages] = useState([
     { from: 'ai', text: `You are chatting with celeb #${id}` },
   ]);

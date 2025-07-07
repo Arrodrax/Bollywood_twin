@@ -59,6 +59,15 @@ const Navbar = () => {
               )}
             </li>
           ))}
+          {/* ✅ Login Button */}
+          <li>
+            <Link
+              to="/login"
+              className="text-secondary hover:text-white text-[18px] font-medium cursor-pointer"
+            >
+              Login
+            </Link>
+          </li>
         </ul>
 
         {/* Mobile Nav */}
@@ -94,6 +103,16 @@ const Navbar = () => {
                   )}
                 </li>
               ))}
+              {/* ✅ Mobile Login */}
+              <li>
+                <Link
+                  to="/login"
+                  className="text-secondary hover:text-white text-[16px] font-medium cursor-pointer"
+                  onClick={() => setToggle(false)}
+                >
+                  Login
+                </Link>
+              </li>
             </ul>
           </div>
         </div>

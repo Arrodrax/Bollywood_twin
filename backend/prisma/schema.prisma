@@ -1,3 +1,4 @@
+
 generator client {
   provider = "prisma-client-js"
 }
@@ -11,4 +12,10 @@ model Celebrity {
   id     Int    @id @default(autoincrement())
   name   String
   prompt String
+}
+
+model User {
+  id       Int    @id @default(autoincrement())
+  email    String @unique
+  password String
 }

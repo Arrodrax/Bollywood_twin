@@ -1,14 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+<<<<<<< HEAD:src/pages/ChooseCelebrity.jsx
 import { technologies } from "../constants"; // assumes this contains Bollywood stars
+=======
+>>>>>>> d88f2ff (Final save before rest):src/components/ChooseCelebrity.jsx
 
 const ChooseCelebrity = () => {
+  const [celebrities, setCelebrities] = useState([]);
   const [selected, setSelected] = useState(null);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    // Fetch celebs from backend
+    fetch("http://localhost:5000/api/celebs")
+      .then((res) => res.json())
+      .then((data) => setCelebrities(data))
+      .catch((err) => console.error("Error fetching celebs:", err));
+  }, []);
+
   const handleGetStarted = () => {
     if (selected !== null) {
+<<<<<<< HEAD:src/pages/ChooseCelebrity.jsx
       navigate(`/chat/${selected + 1}`); // 🔥 redirect to Chat page by ID
+=======
+      navigate(`/chat/${celebrities[selected].id}`); // Use the actual celeb ID
+>>>>>>> d88f2ff (Final save before rest):src/components/ChooseCelebrity.jsx
     }
   };
 
@@ -19,9 +35,9 @@ const ChooseCelebrity = () => {
       </h2>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 max-w-6xl w-full">
-        {technologies.map((tech, idx) => (
+        {celebrities.map((celeb, idx) => (
           <div
-            key={tech.name}
+            key={celeb.id}
             onClick={() => setSelected(idx)}
             className={`cursor-pointer rounded-xl p-2 border-4 transition-shadow duration-300
               ${
@@ -31,13 +47,13 @@ const ChooseCelebrity = () => {
               } bg-gradient-to-br from-zinc-800 to-zinc-900 flex flex-col items-center`}
           >
             <img
-              src={tech.icon}
-              alt={tech.name}
+              src={celeb.icon || "/default-avatar.jpg"} // Use celeb.icon if available, fallback to default
+              alt={celeb.name}
               className="w-24 h-24 object-cover rounded-full mb-3 shadow-lg"
               draggable={false}
             />
             <p className="text-center text-lg font-semibold tracking-wide">
-              {tech.name}
+              {celeb.name}
             </p>
           </div>
         ))}

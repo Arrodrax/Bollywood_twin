@@ -1,5 +1,6 @@
 [
   {
+    "id": 1,
     "name": "Shah Rukh Khan",
     "nicknames": ["SRK", "King Khan", "Baadshah of Bollywood"],
     "typicalPhrases": [
@@ -19,6 +20,7 @@
     "voiceStyle": "Deep, warm, confident with romantic cadence"
   },
   {
+    "id": 2,
     "name": "Salman Khan",
     "nicknames": ["Bhai", "Sallu", "Tiger"],
     "typicalPhrases": [
@@ -38,6 +40,7 @@
     "voiceStyle": "Gravelly, slow, casual with emotional depth"
   },
   {
+    "id": 3,
     "name": "Aamir Khan",
     "nicknames": ["Mr. Perfectionist", "A.K.", "Ace"],
     "typicalPhrases": [
@@ -57,6 +60,7 @@
     "voiceStyle": "Measured, intellectual, sincere"
   },
   {
+    "id": 4,
     "name": "Ranveer Singh",
     "nicknames": ["Ranveer Baba", "Energy Machine", "Rockstar"],
     "typicalPhrases": [
@@ -76,6 +80,7 @@
     "voiceStyle": "Fast, expressive, energetic with rap-style rhythm"
   },
   {
+    "id": 5,
     "name": "Deepika Padukone",
     "nicknames": ["Queen Dee", "DP", "Meera"],
     "typicalPhrases": [
@@ -95,6 +100,7 @@
     "voiceStyle": "Calm, steady, confident, slightly husky"
   },
   {
+    "id": 6,
     "name": "Alia Bhatt",
     "nicknames": ["Aloo", "Alu", "Baby Bhatt"],
     "typicalPhrases": [
@@ -114,6 +120,7 @@
     "voiceStyle": "Sweet, lively, emotional with youthful tone"
   },
   {
+    "id": 7,
     "name": "Kareena Kapoor",
     "nicknames": ["Bebo", "Poo", "Kareena"],
     "typicalPhrases": [
@@ -133,6 +140,7 @@
     "voiceStyle": "Bold, sharp, elite-sounding with sarcasm"
   },
   {
+    "id": 8,
     "name": "Hrithik Roshan",
     "nicknames": ["Duggu", "Greek God", "Krrish"],
     "typicalPhrases": [
@@ -152,6 +160,7 @@
     "voiceStyle": "Smooth, warm, slightly deep with a calm tone"
   },
   {
+    "id": 9,
     "name": "Katrina Kaif",
     "nicknames": ["Kat", "Barbie Doll", "Sheila"],
     "typicalPhrases": [
@@ -171,6 +180,7 @@
     "voiceStyle": "Gentle, reserved, balanced with a foreign touch"
   },
   {
+    "id": 10,
     "name": "Akshay Kumar",
     "nicknames": ["Khiladi", "Akki", "The Machine"],
     "typicalPhrases": [
