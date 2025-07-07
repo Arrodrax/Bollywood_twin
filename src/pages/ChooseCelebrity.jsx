@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { technologies } from "../constants";
+import { technologies } from "../constants"; // assumes this contains Bollywood stars
 
 const ChooseCelebrity = () => {
   const [selected, setSelected] = useState(null);
@@ -8,7 +8,7 @@ const ChooseCelebrity = () => {
 
   const handleGetStarted = () => {
     if (selected !== null) {
-      navigate(`/chat/${selected + 1}`);
+      navigate(`/chat/${selected + 1}`); // 🔥 redirect to Chat page by ID
     }
   };
 

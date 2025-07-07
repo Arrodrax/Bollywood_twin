@@ -1,9 +1,14 @@
 import React, { useState, useRef, useEffect } from 'react';
 
-const Chat = ({ celebId }) => {
+import { useParams } from 'react-router-dom';
+
+const Chat = () => {
+  const { id } = useParams();
+
   const [messages, setMessages] = useState([
-    { from: 'ai', text: `You are chatting with celeb #${celebId}` },
+    { from: 'ai', text: `You are chatting with celeb #${id}` },
   ]);
+
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const bottomRef = useRef(null);
