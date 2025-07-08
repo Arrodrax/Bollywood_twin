@@ -1,20 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
-<<<<<<< HEAD:src/pages/Chat.jsx
-import { useParams } from 'react-router-dom';
-
 const Chat = () => {
-  const { id } = useParams();
-
-=======
-const Chat = () => {
-  const { celebId } = useParams();
->>>>>>> d88f2ff (Final save before rest):src/components/Chat.jsx
+  const { celebId } = useParams(); // ✅ Use correct param
   const [messages, setMessages] = useState([
-    { from: 'ai', text: `You are chatting with celeb #${id}` },
+    { from: 'ai', text: `You are chatting with celeb #${celebId}` },
   ]);
-
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const bottomRef = useRef(null);
@@ -22,6 +13,7 @@ const Chat = () => {
   const sendMessage = async () => {
     if (!input.trim()) return;
     const userMessage = input.trim();
+
     setMessages((msgs) => [...msgs, { from: 'user', text: userMessage }]);
     setInput('');
     setLoading(true);
@@ -67,7 +59,9 @@ const Chat = () => {
           {messages.map((msg, idx) => (
             <div
               key={idx}
-              className={`my-2 text-sm ${msg.from === 'user' ? 'text-right text-blue-300' : 'text-left text-green-400'}`}
+              className={`my-2 text-sm ${
+                msg.from === 'user' ? 'text-right text-blue-300' : 'text-left text-green-400'
+              }`}
             >
               {msg.text}
             </div>

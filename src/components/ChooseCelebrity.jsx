@@ -1,9 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-<<<<<<< HEAD:src/pages/ChooseCelebrity.jsx
-import { technologies } from "../constants"; // assumes this contains Bollywood stars
-=======
->>>>>>> d88f2ff (Final save before rest):src/components/ChooseCelebrity.jsx
 
 const ChooseCelebrity = () => {
   const [celebrities, setCelebrities] = useState([]);
@@ -11,7 +7,6 @@ const ChooseCelebrity = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Fetch celebs from backend
     fetch("http://localhost:5000/api/celebs")
       .then((res) => res.json())
       .then((data) => setCelebrities(data))
@@ -20,11 +15,7 @@ const ChooseCelebrity = () => {
 
   const handleGetStarted = () => {
     if (selected !== null) {
-<<<<<<< HEAD:src/pages/ChooseCelebrity.jsx
-      navigate(`/chat/${selected + 1}`); // 🔥 redirect to Chat page by ID
-=======
-      navigate(`/chat/${celebrities[selected].id}`); // Use the actual celeb ID
->>>>>>> d88f2ff (Final save before rest):src/components/ChooseCelebrity.jsx
+      navigate(`/chat/${celebrities[selected].id}`);
     }
   };
 
@@ -47,7 +38,7 @@ const ChooseCelebrity = () => {
               } bg-gradient-to-br from-zinc-800 to-zinc-900 flex flex-col items-center`}
           >
             <img
-              src={celeb.icon || "/default-avatar.jpg"} // Use celeb.icon if available, fallback to default
+              src={celeb.icon || "/default-avatar.jpg"}
               alt={celeb.name}
               className="w-24 h-24 object-cover rounded-full mb-3 shadow-lg"
               draggable={false}

@@ -4,21 +4,20 @@ const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
 const { PrismaClient } = require('@prisma/client');
-const OpenAI = require('openai');
+const { GoogleGenerativeAI } = require('@google/generative-ai');
 
 const app = express();
 const prisma = new PrismaClient();
 
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
-
+// Initialize Gemini API
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 const authRoutes = require('./routes/authRoutes');
-d88f2ff (Final save before rest)
 
 app.use(cors());
 app.use(express.json());
 app.use('/api/auth', authRoutes);
 
+// Utility to fetch celeb-specific dataset file if exists
 function getDatasetForCeleb(name) {
   const filePath = path.join(__dirname, 'datasets', `${name.toLowerCase().replace(/ /g, '_')}.json`);
   if (fs.existsSync(filePath)) {
@@ -28,13 +27,13 @@ function getDatasetForCeleb(name) {
   return null;
 }
 
+// Get all celebs
 app.get('/api/celebs', async (req, res) => {
   try {
     const filePath = path.join(__dirname, 'datasets', 'celebs.json');
     const data = fs.readFileSync(filePath, 'utf-8');
     const celebs = JSON.parse(data);
 
-    // Add ids to each celeb
     const celebsWithIds = celebs.map((celeb, index) => ({
       id: index + 1,
       name: celeb.name,
@@ -49,6 +48,7 @@ app.get('/api/celebs', async (req, res) => {
   }
 });
 
+// Fallback JSON file
 app.get('/api/celebs/file', (req, res) => {
   const dataPath = path.join(__dirname, 'datasets', 'celebs.json');
 
@@ -67,56 +67,37 @@ app.get('/api/celebs/file', (req, res) => {
   });
 });
 
+// POST: Chat with celeb using Gemini API
 app.post('/api/chat/:celebId', async (req, res) => {
   const { celebId } = req.params;
   const { message } = req.body;
 
   try {
-    // Read the full celeb list from JSON
     const filePath = path.join(__dirname, 'datasets', 'celebs.json');
     const data = fs.readFileSync(filePath, 'utf-8');
     const celebs = JSON.parse(data);
 
-    const celeb = celebs[Number(celebId) - 1]; // IDs are 1-based index
+    const celeb = celebs[Number(celebId) - 1];
 
     if (!celeb) return res.status(404).json({ error: 'Celebrity not found' });
 
-<<<<<<< HEAD
-    const dataset = getDatasetForCeleb(celeb.name);
-=======
-    const systemPrompt = celeb.chatPersona || `Talk like ${celeb.name}`;
->>>>>>> d88f2ff (Final save before rest)
+    const prompt = celeb.prompt || `Talk like ${celeb.name}`;
+    const userPrompt = `${prompt}\n\nUser: ${message}`;
 
-    const messages = [
-      { role: 'system', content: celeb.prompt || `You are now acting as ${celeb.name}.` }
-const dataset = getDatasetForCeleb(celeb.name);
+    const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash-lite' });
+    const result = await model.generateContent(userPrompt);
+    const response = await result.response;
+    const reply = response.text();
 
-    messages.push({ role: 'user', content: message });
-
-    console.log('OpenAI chat messages:', messages);
-
-    const completion = await openai.chat.completions.create({
-      model: 'gpt-4',
-      messages,
-    });
-
-    const aiReply = completion.choices[0].message.content;
-    res.json({ reply: aiReply });
-
+    res.json({ reply });
   } catch (error) {
-<<<<<<< HEAD
-    console.error('AI Error:', error);
+    console.error('Gemini Error:', error);
     res.status(500).json({ error: 'Failed to process chat with AI' });
-=======
-    console.error("Gemini Error:", error.message || error);
-    res.status(500).json({ error: 'Failed to chat with Gemini' });
   }
 });
 
-
-app.post('/api/test', async (req, res) => {
-  try {
-    console.error('AI Error:', error);
-    res.status(500).json({ error: 'Failed to process chat with AI' });
-  }
+// Start server
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`✅ Server running on http://localhost:${PORT}`);
 });

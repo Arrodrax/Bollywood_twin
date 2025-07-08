@@ -1,21 +1,19 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+// Sections (used on homepage)
 import { About, Contact, Hero, Navbar, Tech, StarsCanvas } from "./components";
 
-import Login from "./pages/login";
-import ChooseCelebrity from "./pages/ChooseCelebrity";
-import Chat from "./pages/Chat";
-
-import Chat from ".//Chat";
-import ChooseCelebrity from ".pages/components/ChooseCelebrity";
+// Pages
 import Login from "./components/login";
-import Signup from "./components/signup";  
+import Signup from "./components/Signup";
+import ChooseCelebrity from "./components/ChooseCelebrity";
+import Chat from "./pages/Chat";
 
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Homepage route */}
+        {/* 🏠 Homepage */}
         <Route
           path="/"
           element={
@@ -34,33 +32,12 @@ const App = () => {
           }
         />
 
-
-        {/* Standalone pages */}
+        {/* ✅ Routes for individual pages */}
         <Route path="/login" element={<Login />} />
-        <Route path="/choosecelebrity" element={<ChooseCelebrity />} />
-        <Route path="/chat" element={<Chat />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/choose" element={<ChooseCelebrity />} />
+        <Route path="/chat/:celebId" element={<Chat />} />
       </Routes>
-
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <About />
-                <Tech />
-                <div className='relative z-0'>
-                  <Contact />
-                  <StarsCanvas />
-                </div>
-              </>
-            }
-          />
-          <Route path="/chat" element={<Chat celebId={1} />} />
-          <Route path="/choose" element={<ChooseCelebrity />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/chat/:celebId" element={<Chat />} />
-        </Routes>
     </BrowserRouter>
   );
 };

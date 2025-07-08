@@ -6,16 +6,16 @@ import web from "./web.png";
 import menu from "./menu.svg";
 import close from "./close.svg";
 
-import salman from "./tech/salman.png";
-import srk from "./tech/srk.png";
-import amir from "./tech/amir.png";
-import katrina from "./tech/katrina.png";
-import hrithik from "./tech/hrithik.png";
-import deepika from "./tech/deepika.png";
-import alia from "./tech/alia.png";
-import kareena from "./tech/kareena.png";
-import ranveer from "./tech/ranveer.png";
-import akshay from "./tech/akshay.png";
+import salman from "./tech/salman_khan.png";
+import srk from "./tech/shah_rukh.png";
+import amir from "./tech/aamir_khan.png";
+import katrina from "./tech/katrina_kaif.png";
+import hrithik from "./tech/hrithik_roshan.png";
+import deepika from "./tech/deepika_padukone.png";
+import alia from "./tech/alia_bhatt.png";
+import kareena from "./tech/kareena_kapoor.png";
+import ranveer from "./tech/ranveer_singh.png";
+import akshay from "./tech/akshay_kumar.png";
 
 export {
   logo,

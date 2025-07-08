@@ -17,7 +17,8 @@
       "He has a wax statue at Madame Tussauds.",
       "He never signs autographs without a pen."
     ],
-    "voiceStyle": "Deep, warm, confident with romantic cadence"
+    "voiceStyle": "Deep, warm, confident with romantic cadence",
+    "icon": "/tech/shah_rukh.png"
   },
   {
     "id": 2,
@@ -37,7 +38,8 @@
       "Rarely promotes his movies personally.",
       "Owns multiple dogs and is an animal lover."
     ],
-    "voiceStyle": "Gravelly, slow, casual with emotional depth"
+    "voiceStyle": "Gravelly, slow, casual with emotional depth",
+    "icon": "/tech/salman_khan.png"
   },
   {
     "id": 3,
@@ -57,7 +59,8 @@
       "Was once a state-level tennis player.",
       "Launched 'Satyamev Jayate' for social change."
     ],
-    "voiceStyle": "Measured, intellectual, sincere"
+    "voiceStyle": "Measured, intellectual, sincere",
+    "icon": "/tech/aamir_khan.png"
   },
   {
     "id": 4,
@@ -77,7 +80,8 @@
       "Married to Deepika Padukone.",
       "Started career with 'Band Baaja Baaraat'."
     ],
-    "voiceStyle": "Fast, expressive, energetic with rap-style rhythm"
+    "voiceStyle": "Fast, expressive, energetic with rap-style rhythm",
+    "icon": "/tech/ranveer_singh.png"
   },
   {
     "id": 5,
@@ -97,7 +101,8 @@
       "Debuted with SRK in 'Om Shanti Om'.",
       "Runs a mental health foundation - Live Love Laugh."
     ],
-    "voiceStyle": "Calm, steady, confident, slightly husky"
+    "voiceStyle": "Calm, steady, confident, slightly husky",
+    "icon": "/tech/deepika_padukone.png"
   },
   {
     "id": 6,
@@ -117,7 +122,8 @@
       "Started acting at age 19 in 'Student of the Year'.",
       "Married to Ranbir Kapoor."
     ],
-    "voiceStyle": "Sweet, lively, emotional with youthful tone"
+    "voiceStyle": "Sweet, lively, emotional with youthful tone",
+    "icon": "/tech/alia_bhatt.png"
   },
   {
     "id": 7,
@@ -137,7 +143,8 @@
       "Belongs to the Kapoor film family.",
       "Hosts a podcast on parenting."
     ],
-    "voiceStyle": "Bold, sharp, elite-sounding with sarcasm"
+    "voiceStyle": "Bold, sharp, elite-sounding with sarcasm",
+    "icon": "/tech/kareena_kapoor.png"
   },
   {
     "id": 8,
@@ -157,7 +164,8 @@
       "Was once a background dancer.",
       "Considered one of Bollywood’s best dancers."
     ],
-    "voiceStyle": "Smooth, warm, slightly deep with a calm tone"
+    "voiceStyle": "Smooth, warm, slightly deep with a calm tone",
+    "icon": "/tech/hrithik_roshan.png"
   },
   {
     "id": 9,
@@ -177,7 +185,8 @@
       "Learnt Hindi after entering films.",
       "Runs a cosmetics brand - Kay Beauty."
     ],
-    "voiceStyle": "Gentle, reserved, balanced with a foreign touch"
+    "voiceStyle": "Gentle, reserved, balanced with a foreign touch",
+    "icon": "/tech/katrina_kaif.png"
   },
   {
     "id": 10,
@@ -197,6 +206,7 @@
       "Known for his 4 am workout routine.",
       "Has Canadian citizenship (but deeply patriotic)."
     ],
-    "voiceStyle": "Fast, crisp, enthusiastic with macho confidence"
+    "voiceStyle": "Fast, crisp, enthusiastic with macho confidence",
+    "icon": "/tech/akshay_kumar.png"
   }
 ]
