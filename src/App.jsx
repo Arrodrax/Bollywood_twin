@@ -1,16 +1,15 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import { About, Contact, Hero, Navbar, Tech, StarsCanvas } from "./components";
-<<<<<<< HEAD
+
 import Login from "./pages/login";
 import ChooseCelebrity from "./pages/ChooseCelebrity";
 import Chat from "./pages/Chat";
-=======
-import Chat from "./components/Chat";
-import ChooseCelebrity from "./components/ChooseCelebrity";
+
+import Chat from ".//Chat";
+import ChooseCelebrity from ".pages/components/ChooseCelebrity";
 import Login from "./components/login";
 import Signup from "./components/signup";  
->>>>>>> d88f2ff (Final save before rest)
 
 const App = () => {
   return (
@@ -35,13 +34,13 @@ const App = () => {
           }
         />
 
-<<<<<<< HEAD
+
         {/* Standalone pages */}
         <Route path="/login" element={<Login />} />
         <Route path="/choosecelebrity" element={<ChooseCelebrity />} />
         <Route path="/chat" element={<Chat />} />
       </Routes>
-=======
+
         <Routes>
           <Route
             path="/"
@@ -62,8 +61,6 @@ const App = () => {
           <Route path="/signup" element={<Signup />} />
           <Route path="/chat/:celebId" element={<Chat />} />
         </Routes>
-      </div>
->>>>>>> d88f2ff (Final save before rest)
     </BrowserRouter>
   );
 };
