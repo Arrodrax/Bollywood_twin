@@ -7,7 +7,7 @@ import { About, Contact, Hero, Navbar, Tech, StarsCanvas } from "./components";
 import Login from "./components/login";
 import Signup from "./components/Signup";
 import ChooseCelebrity from "./components/ChooseCelebrity";
-import Chat from "./pages/Chat";
+import Chat from "./pages/Chat"; // ✅ Chat with mic input already handled
 
 const App = () => {
   return (

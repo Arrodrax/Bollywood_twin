@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Tilt from "react-tilt";
+import Tilt from "react-parallax-tilt";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
@@ -34,37 +34,36 @@ const Login = () => {
     setSignupForm({ ...signupForm, [name]: value });
   };
 
- const handleSubmit = async (e) => {
-  e.preventDefault();
-  setLoading(true);
-  setError("");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError("");
 
-  try {
-    const response = await fetch("http://localhost:5000/api/auth/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(form),
-    });
+    try {
+      const response = await fetch("http://localhost:5000/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(form),
+      });
 
-    const data = await response.json();
+      const data = await response.json();
 
-    if (response.ok) {
-      localStorage.setItem("token", data.token); // Store token
-      alert("Login successful!");
-      navigate("/choose"); // Redirect to ChooseCelebrity
-    } else {
-      setError(data.error || "Login failed");
-      setShowSignup(true);
+      if (response.ok) {
+        localStorage.setItem("token", data.token); // Store token
+        alert("Login successful!");
+        navigate("/choose"); // Redirect to ChooseCelebrity route (check route casing)
+      } else {
+        setError(data.error || "Login failed");
+        setShowSignup(true);
+      }
+    } catch (err) {
+      setError("Network error");
+    } finally {
+      setLoading(false);
     }
-  } catch (err) {
-    setError("Network error");
-  } finally {
-    setLoading(false);
-  }
-};
-
+  };
 
   const handleSignupSubmit = async (e) => {
     e.preventDefault();
@@ -116,7 +115,6 @@ const Login = () => {
             className="green-pink-gradient p-[2px] rounded-[24px] shadow-card"
           >
             <div
-              options={{ max: 45, scale: 1, speed: 450 }}
               className="bg-tertiary rounded-[20px] py-16 px-10 flex flex-col items-center"
             >
               <form onSubmit={handleSubmit} className="w-full flex flex-col gap-6">

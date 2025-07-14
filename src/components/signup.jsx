@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Tilt from "react-tilt";
+import Tilt from "react-parallax-tilt";
 import { motion } from "framer-motion";
 import { useNavigate, Link } from "react-router-dom";
 
@@ -19,7 +19,6 @@ const Login = () => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
   };
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -42,12 +41,11 @@ const Login = () => {
         return;
       }
 
-   
       localStorage.setItem("token", data.token);
 
       setLoading(false);
       alert("Login successful!");
-      navigate("/ChooseCelebrity");
+      navigate("/choose"); // Make sure route is lowercase 'choose'
     } catch (error) {
       setLoading(false);
       alert("Network error: " + error.message);
@@ -70,15 +68,12 @@ const Login = () => {
       </motion.p>
 
       <div className="mt-20 flex justify-center">
-        <Tilt className="xs:w-[520px] w-full">
+        <Tilt className="xs:w-[520px] w-full" tiltMaxAngleX={45} tiltMaxAngleY={45} perspective={1000} scale={1} transitionSpeed={450}>
           <motion.div
             variants={fadeIn("right", "spring", 0.5, 0.75)}
             className="green-pink-gradient p-[2px] rounded-[24px] shadow-card"
           >
-            <div
-              options={{ max: 45, scale: 1, speed: 450 }}
-              className="bg-tertiary rounded-[20px] py-16 px-10 flex flex-col items-center"
-            >
+            <div className="bg-tertiary rounded-[20px] py-16 px-10 flex flex-col items-center">
               <form onSubmit={handleSubmit} className="w-full flex flex-col gap-6">
                 <input
                   type="email"

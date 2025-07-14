@@ -26,6 +26,15 @@ function getDatasetForCeleb(name) {
   }
   return null;
 }
+function addEmojis(text) {
+  const emojis = ['😊', '✨', '🎬', '🌟', '🥳', '💃', '🕺', '🎉', '🎥', '😍'];
+  const count = 2;
+  const randomEmojis = Array.from({ length: count }, () =>
+    emojis[Math.floor(Math.random() * emojis.length)]
+  ).join(' ');
+  return `${text} ${randomEmojis}`;
+}
+
 
 // Get all celebs
 app.get('/api/celebs', async (req, res) => {
@@ -76,16 +85,22 @@ app.post('/api/chat/:celebId', async (req, res) => {
     const filePath = path.join(__dirname, 'datasets', 'celebs.json');
     const data = fs.readFileSync(filePath, 'utf-8');
     const celebs = JSON.parse(data);
-
     const celeb = celebs[Number(celebId) - 1];
 
     if (!celeb) return res.status(404).json({ error: 'Celebrity not found' });
 
-    const prompt = celeb.prompt || `Talk like ${celeb.name}`;
-    const userPrompt = `${prompt}\n\nUser: ${message}`;
+    const personalityTone = celeb.personaPrompt || `Respond like ${celeb.name} with their signature style`;
+
+    const finalPrompt = `
+${personalityTone}
+Avoid movie-like acting or dialogues. Keep it natural and human.
+Use friendly and fun tone if needed. Add 2 fitting emojis at the end.
+
+User: ${message}
+`;
 
     const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash-lite' });
-    const result = await model.generateContent(userPrompt);
+    const result = await model.generateContent(finalPrompt);
     const response = await result.response;
     const reply = response.text();
 
